@@ -1,0 +1,60 @@
+# Python
+**/__pycache__/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv
+venv/
+**/venv/
+**/venv
+ENV/
+.venv
+
+# Database
+*.db
+*.db-journal
+*.db.backup
+*.db.backup.*
+*.db.corrupted.*
+*.sql
+*.db-shm
+*.db-wal
+
+# Data directory (database files stored here)
+server/data/*.db
+server/data/*.db-journal
+server/data/*.db.backup
+server/data/*.db.backup.*
+server/data/*.db.corrupted.*
+server/data/*.sql
+
+# Logs
+*.log
+server.log
+
+# IDE
+.vscode/
+.idea/
+.cursor/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vaulty local config
+.vaulty
+
+# Python package build artifacts
+*.egg-info/
+dist/
+build/
+*.egg
