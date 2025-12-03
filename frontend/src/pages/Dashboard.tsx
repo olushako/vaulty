@@ -287,11 +287,11 @@ const Dashboard = () => {
       <div className="mb-6">
         <div className="card p-5">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-[#c9d1d9]">
               Events (Last 7 Days)
             </h3>
             <div className="flex items-center gap-2">
-              <label className="text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">
+              <label className="text-xs text-gray-500 dark:text-[#8b949e] whitespace-nowrap">
                 Filter:
               </label>
               <select
@@ -301,7 +301,7 @@ const Dashboard = () => {
                   setSourceFilter(newFilter);
                   localStorage.setItem('vaulty_dashboard_source_filter', newFilter || 'all');
                 }}
-                className="text-xs px-3 py-1.5 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent"
+                className="text-xs px-3 py-1.5 border border-gray-300 dark:border-[#30363d] rounded-md bg-white dark:bg-[#0d1117] text-gray-900 dark:text-[#c9d1d9] focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent"
               >
                 <option value="all">All</option>
                 <option value="ui">UI</option>
@@ -342,7 +342,7 @@ const Dashboard = () => {
         ) : (
           <div 
             ref={activitiesContainerRef}
-            className="divide-y divide-gray-200 dark:divide-gray-700 max-h-[600px] overflow-y-auto"
+            className="divide-y divide-gray-200 dark:divide-[#30363d] max-h-[600px] overflow-y-auto"
           >
             {activities.map((activity) => {
               // Extract client IP, MCP info, source, and masked token from request_data
@@ -407,7 +407,7 @@ const Dashboard = () => {
               return (
                 <div 
                   key={activity.id} 
-                  className="px-3 py-1 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors cursor-pointer"
+                  className="px-3 py-1 hover:bg-gray-50 dark:hover:bg-[#161b22] transition-colors cursor-pointer"
                   onClick={() => setSelectedActivity(activity)}
                 >
                   <div className="flex items-center gap-2 flex-wrap">
@@ -530,13 +530,13 @@ const Dashboard = () => {
       {/* Activity Details Modal */}
       {selectedActivity && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setSelectedActivity(null)}>
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-            <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 py-3">
+          <div className="bg-white dark:bg-[#161b22] rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="sticky top-0 bg-white dark:bg-[#161b22] border-b border-gray-200 dark:border-[#30363d] px-4 py-3">
               <div className="flex items-center justify-between mb-2">
-                <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100">Activity Details</h3>
+                <h3 className="text-base font-semibold text-gray-900 dark:text-[#c9d1d9]">Activity Details</h3>
                 <button
                   onClick={() => setSelectedActivity(null)}
-                  className="p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 rounded transition-colors"
+                  className="p-1 text-gray-400 hover:text-gray-600 dark:hover:text-[#c9d1d9] rounded transition-colors"
                 >
                   <XCircle className="w-5 h-5" />
                 </button>
@@ -591,8 +591,8 @@ const Dashboard = () => {
 
               {selectedActivity.request_data && (
                 <div>
-                  <label className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2 block">Request Data</label>
-                  <div className="p-3 bg-gray-50 dark:bg-gray-900 rounded text-xs font-mono overflow-auto border border-gray-200 dark:border-gray-700">
+                  <label className="text-xs font-medium text-gray-500 dark:text-[#8b949e] uppercase tracking-wide mb-2 block">Request Data</label>
+                  <div className="p-3 bg-gray-50 dark:bg-[#0d1117] rounded text-xs font-mono overflow-auto border border-gray-200 dark:border-[#30363d]">
                     {(() => {
                       try {
                         const data = JSON.parse(selectedActivity.request_data);
@@ -600,7 +600,7 @@ const Dashboard = () => {
                         return <JsonTree data={data} defaultExpanded={true} />;
                       } catch {
                         // If not JSON, display as plain text (already masked in DB)
-                        return <span className="text-gray-900 dark:text-gray-100">{selectedActivity.request_data}</span>;
+                        return <span className="text-gray-900 dark:text-[#c9d1d9]">{selectedActivity.request_data}</span>;
                       }
                     })()}
                   </div>
@@ -609,8 +609,8 @@ const Dashboard = () => {
 
               {selectedActivity.response_data && (
                 <div>
-                  <label className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2 block">Response Data</label>
-                  <div className="p-3 bg-gray-50 dark:bg-gray-900 rounded text-xs font-mono overflow-auto border border-gray-200 dark:border-gray-700">
+                  <label className="text-xs font-medium text-gray-500 dark:text-[#8b949e] uppercase tracking-wide mb-2 block">Response Data</label>
+                  <div className="p-3 bg-gray-50 dark:bg-[#0d1117] rounded text-xs font-mono overflow-auto border border-gray-200 dark:border-[#30363d]">
                     {(() => {
                       try {
                         const data = JSON.parse(selectedActivity.response_data);
@@ -618,7 +618,7 @@ const Dashboard = () => {
                         return <JsonTree data={data} defaultExpanded={true} />;
                       } catch {
                         // If not JSON, display as plain text (already masked in DB)
-                        return <span className="text-gray-900 dark:text-gray-100">{selectedActivity.response_data}</span>;
+                        return <span className="text-gray-900 dark:text-[#c9d1d9]">{selectedActivity.response_data}</span>;
                       }
                     })()}
                   </div>
@@ -626,7 +626,7 @@ const Dashboard = () => {
               )}
 
               {!selectedActivity.request_data && !selectedActivity.response_data && (
-                <div className="p-8 text-center text-gray-500 dark:text-gray-400">
+                <div className="p-8 text-center text-gray-500 dark:text-[#8b949e]">
                   No request or response data available
                 </div>
               )}

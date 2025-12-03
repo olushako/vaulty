@@ -139,15 +139,15 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 h-screen fixed left-0 top-0 flex flex-col">
-      <div className="header-padding border-b border-gray-200 dark:border-gray-700 h-[73px] flex items-center">
+    <div className="w-64 bg-white dark:bg-[#161b22] border-r border-gray-200 dark:border-[#30363d] h-screen fixed left-0 top-0 flex flex-col">
+      <div className="header-padding border-b border-gray-200 dark:border-[#30363d] h-[73px] flex items-center">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center flex-shrink-0">
             <Lock className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h1 className="font-semibold text-gray-900 dark:text-gray-100 leading-tight">Vaulty</h1>
-            <p className="text-xs text-gray-500 dark:text-gray-400 leading-tight">Secrets Manager</p>
+            <h1 className="font-semibold text-gray-900 dark:text-[#c9d1d9] leading-tight">Vaulty</h1>
+            <p className="text-xs text-gray-500 dark:text-[#8b949e] leading-tight">Secrets Manager</p>
           </div>
         </div>
       </div>
@@ -200,9 +200,9 @@ const Sidebar = () => {
             <div className="ml-4 mt-1 space-y-0.5">
 
               {projectsLoading ? (
-                <div className="px-3 py-2 text-xs text-gray-500 dark:text-gray-400">Loading...</div>
+                <div className="px-3 py-2 text-xs text-gray-500 dark:text-[#8b949e]">Loading...</div>
               ) : projects.length === 0 && !showCreateProject ? (
-                <div className="px-3 py-2 text-xs text-gray-400 dark:text-gray-500 italic">No projects</div>
+                <div className="px-3 py-2 text-xs text-gray-400 dark:text-[#6e7681] italic">No projects</div>
               ) : (
                 projects.map((project) => {
                   const projectPath = `/projects/${encodeURIComponent(project.name)}`;
@@ -213,16 +213,16 @@ const Sidebar = () => {
                       key={project.id}
                       className={`group flex items-center gap-1 px-2 py-1 rounded-md transition-colors ${
                         isActive
-                          ? 'bg-primary-100 dark:bg-primary-900/30'
-                          : 'hover:bg-gray-100 dark:hover:bg-gray-700'
+                          ? 'bg-primary-100 dark:bg-[#1f2328]'
+                          : 'hover:bg-gray-100 dark:hover:bg-[#161b22]'
                       }`}
                     >
                       <Link
                         to={projectPath}
                         className={`flex-1 flex items-center gap-2 py-1 text-xs transition-colors ${
                           isActive
-                            ? 'text-primary-700 dark:text-primary-300 font-medium'
-                            : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100'
+                            ? 'text-primary-700 dark:text-[#c9d1d9] font-medium'
+                            : 'text-gray-600 dark:text-[#8b949e] hover:text-gray-900 dark:hover:text-[#c9d1d9]'
                         }`}
                         title={project.description || project.name}
                       >
@@ -260,14 +260,14 @@ const Sidebar = () => {
 
           {/* Create/Edit Project Form */}
           {showCreateProject && authInfo?.is_master && (
-            <div className="ml-4 mt-2 p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg border border-gray-200 dark:border-gray-600">
+            <div className="ml-4 mt-2 p-3 bg-gray-50 dark:bg-[#0d1117] rounded-lg border border-gray-200 dark:border-[#30363d]">
               <div className="flex items-center justify-between mb-2">
-                <h3 className="text-xs font-semibold text-gray-900 dark:text-gray-100">
+                <h3 className="text-xs font-semibold text-gray-900 dark:text-[#c9d1d9]">
                   {editingProject ? 'Edit Project' : 'Create Project'}
                 </h3>
                 <button
                   onClick={cancelProjectForm}
-                  className="p-0.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 rounded"
+                  className="p-0.5 text-gray-400 hover:text-gray-600 dark:hover:text-[#c9d1d9] rounded"
                 >
                   <X className="w-3 h-3" />
                 </button>
@@ -340,7 +340,7 @@ const Sidebar = () => {
                 }
               }
             }}
-            className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors mt-2 border border-red-200 dark:border-red-800"
+            className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors mt-2 border border-red-200 dark:border-red-800/50"
             title="Temporary: Flush all activities (Master token only)"
           >
             <Trash2 className="w-4 h-4" />
@@ -349,11 +349,11 @@ const Sidebar = () => {
         )}
       </nav>
 
-      <div className="p-4 border-t border-gray-200 dark:border-gray-700">
-        <div className="text-xs text-gray-500 dark:text-gray-400 px-3 mb-3">
+      <div className="p-4 border-t border-gray-200 dark:border-[#30363d]">
+        <div className="text-xs text-gray-500 dark:text-[#8b949e] px-3 mb-3">
           {authInfo ? (
             <>
-              <div className="font-medium text-gray-700 dark:text-gray-300">
+              <div className="font-medium text-gray-700 dark:text-[#c9d1d9]">
                 {authInfo.is_master ? 'Master Token' : 'Project Token'}
               </div>
               <div className="truncate" title={authInfo.token_name}>
@@ -361,12 +361,12 @@ const Sidebar = () => {
               </div>
             </>
           ) : (
-            <div className="text-gray-400 dark:text-gray-500">Loading...</div>
+            <div className="text-gray-400 dark:text-[#6e7681]">Loading...</div>
           )}
         </div>
         <button
           onClick={logout}
-          className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+          className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-700 dark:text-[#c9d1d9] hover:bg-gray-100 dark:hover:bg-[#161b22] rounded-lg transition-colors"
         >
           <LogOut className="w-4 h-4" />
           <span>Logout</span>

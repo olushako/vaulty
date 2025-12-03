@@ -20,6 +20,21 @@ export default {
           800: '#5b21b6',
           900: '#4c1d95',
         },
+        // GitHub dark theme colors
+        github: {
+          dark: {
+            bg: '#0d1117',
+            'bg-secondary': '#161b22',
+            'bg-tertiary': '#21262d',
+            border: '#30363d',
+            'border-secondary': '#21262d',
+            text: '#c9d1d9',
+            'text-secondary': '#8b949e',
+            'text-muted': '#6e7681',
+            hover: '#1f2328',
+            'hover-secondary': '#161b22',
+          },
+        },
       },
     },
   },
